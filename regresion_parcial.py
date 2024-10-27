@@ -11,8 +11,6 @@ trameses = pd.read_csv(r'C:\proyecto_caronte\trameses.csv', sep=',')
 # Unir trameses con activitats
 trameses_activitats = trameses.merge(activitats, on="activitat_id", how="left")
 
-print(trameses_activitats)
-
 trameses_activitats = trameses_activitats.dropna(subset=['grade_x'])
 
 # Filtrar el intento con la nota más alta para cada actividad y usuario
@@ -38,9 +36,6 @@ data['F_Grade'] = data['F_Grade'].str.replace(',', '.').astype(float)
 
 # Seleccionar solo las columnas necesarias para el modelo
 df = data[['userid', 'F_Grade', 'avg_grade_prev', 'num_evaluations', 'P_Grade']].dropna()
-
-# Exportar a CSV para verificación
-# df.to_csv('predicciones_alumnos.csv', index=False)
 
 # Dividir los datos en características (X) y variable objetivo (Y)
 X = df[['avg_grade_prev', 'num_evaluations', 'P_Grade']]
