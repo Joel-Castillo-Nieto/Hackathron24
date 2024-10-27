@@ -57,4 +57,17 @@ Una API oberta podria ser una opció interesant, ja que d'aquesta manera, el car
 
 Finalment, hem pensat en una llibreria, de manera que sigui portable, i que es pugui fer servir al Caronte, i també de múltiples maneres. L'única dificultat seria crear una documentació, i fer-ho de manera portable el codi. Finalment, aquesta opció va ser la que menys problemes ens aportaba, així que hem escollit aquesta.
 
+## SISTEMA DE RECOMANACIONS DE PATRONS D'ESTUDIS I RENDIMENT 
+
+Aquesta proposta és un primer pas cap al desenvolupament d’un sistema de recomanacions de patrons d’estudi per a estudiants tant d’un baix rendiment acadèmic com d’alt. Cal subratllar que a causa de les nostres limitacions actuals en coneixements i experiència en aquest tipus de sistemes estem com en una fase preliminar. La idea principal és assentar les bases perquè aquest projecte quedi obert a l’evolució i una millora contínua en el futur.  
+
+Anàlisi d’activitats i filtració d’activitats recomanades: 
+Aquesta proposta està dividit en diferents fases. La primera seria identificar als estudiants que tenen un rendiment per sota o per dalt de les qualificacions finals i parcials. 
+Segons el promig de qualificacions i el nombre d’intents de les activitats, el programa analitzaria un patró d’estudi. Les recomanacions es basarien segons alguns factors : 
+-	Activitats d’alt rendiment: Es recomanen activitats amb una mitjana de qualificacions superior a un llindar, cosa que indica que han estat efectives per a altres estudiants.
+-	Activitats amb un baix nombre d’intents: aquest tipus d’activitats es podrien excloure com a recomanacions perquè indiquen que no són molt difícils i no serien tan efectives per millorar. 
+
+Personalització recomanacions i futures millores: 
+Les recomanacions hauran de ser personalitzades, tenint en compte les àrees específiques de cada estudiant on mostren més dificultats. 
+Les futures millores per dur a terme aquesta proposta seria mitjançant la implementació d’algoritmes de machine learning per exemple per tal de fer un sistema de recomanacions més robust. 
 
