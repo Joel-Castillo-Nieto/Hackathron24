@@ -4,9 +4,9 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
 # Cargar los datos
-notes = pd.read_csv(r'C:\proyecto_caronte\notes.csv', sep=';')
-activitats = pd.read_csv(r'C:\proyecto_caronte\activitats.csv', sep=',', encoding='latin1')
-trameses = pd.read_csv(r'C:\proyecto_caronte\trameses.csv', sep=',')
+notes = pd.read_csv('./datos/notes.csv', sep=';')
+activitats = pd.read_csv('./datos/activitats.csv', sep=',', encoding='latin1')
+trameses = pd.read_csv('./datos/trameses.csv', sep=',')
 
 # Unir trameses con activitats
 trameses_activitats = trameses.merge(activitats, on="activitat_id", how="left")

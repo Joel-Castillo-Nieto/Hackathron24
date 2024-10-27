@@ -20,11 +20,12 @@ def partial_F(pd_data):
 # The same as partial_F but with students that didn't do the partial.
 def no_partial_F(pd_data):
     csv_data = pd_data[pd_data["F_Grade"].notna()]
-    csv_clean = csv_data[csv_data["P_Grade"].notna() == False]
+    csv_clean = csv_data[csv_data["P_Grade"].isna()]
 
     return csv_clean
 
-# Pass the data filtered (for example with aula_F()) then r
+# Pass the data filtered (for example with aula_F()) then filter
+# all null in grades.
 def partial_R(pd_data):
     csv_data = pd_data[pd_data["F_Grade"].notna()]
     csv_data = csv_data[csv_data["P_Grade"].notna()]
@@ -32,9 +33,20 @@ def partial_R(pd_data):
 
     return csv_clean
 
+
+# The same as partial_R but with partial being null and other grades
+# filtering the NULL
 def no_partial_R(pd_data):
     csv_data = pd_data[pd_data["F_Grade"].notna()]
-    csv_data = csv_data[csv_data["P_Grade"].notna() == False]
+    csv_data = csv_data[csv_data["P_Grade"].isna()]
     csv_clean = csv_data[csv_data["R_Grade"].notna()]
 
     return csv_clean
+
+# This function, gets
+def csv_int(arr_columns,df):
+    for element in arr_columns:
+        # Convertir les columnes que necessiten ser numèriques
+        df[element] = pd.to_numeric(df[element], errors='coerce')
+
+    return df
