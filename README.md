@@ -32,6 +32,10 @@ Per començar, hem planificat com seria un script que pogués solucionar el prim
 
 Hem fet servir Power Bi per representar la informació dels 3 CSV, i interpretar-los, ja que degut a l'experiencia nul·la amb machine learning, la nostra solució serà interpretar les dades, i fer una funció matemàtica que puguem posar dades i fer una predicció molt idealista, ja que hi han molts detalls que poden influir al resultat i no els tenim en compte ja que ho complicaria tot.
 
+A continuació algunes gràfiques que hem fet per analitzar les dades:
+![Mitjana de nota]([https://github.com/[username]](https://github.com/Joel-Castillo-Nieto/Hackathron24/blob/main/img/mitjana.png)
+![Mitjana de nota classificat per assignatura(aula)](https://github.com/Joel-Castillo-Nieto/Hackathron24/blob/main/img/media%20de%20nota%20final%20por%20assignaturas.png)
+
 Per fer la fòrmula, hem fet servir ChatGpt que ens ha fet un codi que ens retorna uns coeficients de com afecten alguns valors a les notes parcials/finals/recuperacions, i seguidament muntem una fòrmula amb aquests coeficients.
 
 Una vegada creada la fòrmula, nosaltres disenyem la solució:
