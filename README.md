@@ -38,6 +38,10 @@ A continuació algunes gràfiques que hem fet per analitzar les dades:
 
 Per fer la fòrmula, hem fet servir ChatGpt que ens ha fet un codi que ens retorna uns coeficients de com afecten alguns valors a les notes parcials/finals/recuperacions, i seguidament muntem una fòrmula amb aquests coeficients.
 
+La fòrmula que ens interesa és una regresió lineal multiple(o multivariable).
+Una regresió lineal múltiple és un model de regresió que inclou dues o més variables independents. Básicament és un model estadístic que permet relacionar múltiples variables explicatives amb una variable resposta de manera lineal, un exèmple de regresió lineal multiple:
+![Exemple de regressió lineal multivariable](https://d20ohkaloyme4g.cloudfront.net/img/document_thumbnails/66f57d6438f24d6f2e85bd4ed542516e/thumb_1200_900.png)
+
 Una vegada creada la fòrmula, nosaltres disenyem la solució:
 
 ## Creació de la solució
