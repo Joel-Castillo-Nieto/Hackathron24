@@ -42,3 +42,15 @@ Una vegada creada la fòrmula, nosaltres disenyem la solució:
 
 ## Creació de la solució
 
+Per començar, hem de pensar com podem rebre la informació, i hem pensat en tres propostes:
+1. Pàgina web amb CRUD.
+2. Una API oberta.
+3. Llibreria.
+
+La pàgina web l'hem descartat ja que segurament seria una pàgina web externa al Caronte i això dificultaria la entrada d'informació, tenir que iniciar sessió un altre vegada, entre altes dificultats que ens podria causar.
+
+Una API oberta podria ser una opció interesant, ja que d'aquesta manera, el caronte només tendria que fer una ruta al servidor, i que treballi en els càlculs. EL problema principal és que ningú del grup ha treballat amb APIs, no he treballat tampoc amb CORS, i això seria ja una dificultat mig-alta d'entrada per començar a crear el projecte, i per tant l'hem descartat per aquesta mateixa raó.
+
+Finalment, hem pensat en una llibreria, de manera que sigui portable, i que es pugui fer servir en el Caronte, i també de múltiples maneres. L'unica dificultat seria crear una documentació, i fer-ho de manera portable el codi. Finalment, aquesta opció va ser la que menys problemes ens aportaba, així que hem escollit aquesta.
+
+
