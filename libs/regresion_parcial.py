@@ -53,8 +53,8 @@ def get_reg():
     coefficients = model.coef_  # Coeficientes (w1, w2, w3)
     intercept = model.intercept_  # Intercepto (b)
 
-    print("Coeficientes:", coefficients)
-    print("Intercepto:", intercept)
+    # print("Coeficientes:", coefficients)
+    # print("Intercepto:", intercept)
 
     return [coefficients[0],coefficients[1],coefficients[2],intercept]
 

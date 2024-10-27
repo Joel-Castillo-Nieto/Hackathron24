@@ -43,10 +43,28 @@ def no_partial_R(pd_data):
 
     return csv_clean
 
-# This function, gets
+# This function, gets the values and removes the "" to turn them into numbers.
 def int(arr_columns,df):
     for element in arr_columns:
         # Convertir les columnes que necessiten ser numèriques
         df[element] = pd.to_numeric(df[element], errors='coerce')
 
     return df
+
+
+def avg_grade(id_user, ruta_csv='../datos/trameses.csv', delim=","):
+    trameses = pd.read_csv(ruta_csv, sep=delim)
+
+    # Filter rows for student
+    trameses_usuario = trameses[trameses["userid"] == id_user]
+
+    # Transform values into integer
+    trameses_usuario = int(["userid","grade","nevaluations"],trameses_usuario)
+
+    # Get the average grade, ignoring null values
+    trameses_usuario = trameses_usuario[trameses_usuario['grade'].notna()]
+    nota_media = trameses_usuario['grade'].mean()
+
+    return nota_media
+
+print(avg_grade(128))
