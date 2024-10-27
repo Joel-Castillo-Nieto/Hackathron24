@@ -30,7 +30,7 @@ Per començar, hem planificat com seria un script que pogués solucionar el prim
 
 ## Elaboració del projecte
 
-Hem fet servir el programa Microsoft Power Bi per representar la informació dels 3 arxius CSV, i interpretar-los. Això ja que degut a l'experiencia nul·la amb machine learning, la nostra solució serà interpretar les dades, i fer una funció matemàtica a la que poguem posar dades i fer una predicció molt idealista, ja que hi ha molts detalls que poden influir al resultat i no els tenim en compte ja que ho complicaria tot.
+Hem fet servir el programa Microsoft Power Bi per representar la informació dels 3 arxius CSV, i interpretar-los. Això ja que degut a l'experiència nul·la amb machine learning, la nostra solució serà interpretar les dades, i fer una funció matemàtica a la que poguem posar dades i fer una predicció molt idealista, ja que hi ha molts detalls que poden influir al resultat i no els tenim en compte ja que ho complicaria tot.
 
 A continuació algunes gràfiques que hem fet per analitzar les dades:
 ![Mitjana de nota](https://github.com/Joel-Castillo-Nieto/Hackathron24/blob/main/img/mitjana.png)
