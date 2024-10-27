@@ -44,7 +44,7 @@ def no_partial_R(pd_data):
     return csv_clean
 
 # This function, gets
-def csv_int(arr_columns,df):
+def int(arr_columns,df):
     for element in arr_columns:
         # Convertir les columnes que necessiten ser numèriques
         df[element] = pd.to_numeric(df[element], errors='coerce')

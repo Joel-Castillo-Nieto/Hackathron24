@@ -4,13 +4,17 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
 # Cargar los datos
-notes = pd.read_csv('./datos/notes.csv', sep=';')
-activitats = pd.read_csv('./datos/activitats.csv', sep=',', encoding='latin1')
-trameses = pd.read_csv('./datos/trameses.csv', sep=',')
+notes = pd.read_csv('../datos/notes.csv', sep=';')
+activitats = pd.read_csv('../datos/activitats.csv', sep=',', encoding='latin1')
+trameses = pd.read_csv('../datos/trameses.csv', sep=',')
 
-# Unir trameses con activitats
+# Unir trameses con activitats (equivalent a fer un join amb sql)
 trameses_activitats = trameses.merge(activitats, on="activitat_id", how="left")
 
+# Mostrem per pantalla per debugging
+print(trameses_activitats)
+
+# Treiem totes les files que tinguin null al grade
 trameses_activitats = trameses_activitats.dropna(subset=['grade_x'])
 
 # Filtrar el intento con la nota más alta para cada actividad y usuario
@@ -27,18 +31,20 @@ user_activity_summary = highest_grade_attempts.groupby('userid').agg(
 # Unir el resultado con notes, de modo que cada usuario tenga una sola fila
 data = notes.merge(user_activity_summary, on="userid", how="left")
 
-# Eliminar filas donde P_Grade sea nulo
-data = data.dropna(subset=['P_Grade'])
+# Filtrar datos donde el parcial es nulo
+data = data[data["P_Grade"].isna() == True]
 
 # Reemplazar comas por puntos y convertir a float
-data['P_Grade'] = data['P_Grade'].str.replace(',', '.').astype(float)
 data['F_Grade'] = data['F_Grade'].str.replace(',', '.').astype(float)
 
 # Seleccionar solo las columnas necesarias para el modelo
-df = data[['userid', 'F_Grade', 'avg_grade_prev', 'num_evaluations', 'P_Grade']].dropna()
+df = data[['userid', 'F_Grade', 'avg_grade_prev', 'num_evaluations']].dropna()
+
+# Exportar a CSV para verificación (Debugging)
+# df.to_csv('predicciones_alumnos2.csv', index=False)
 
 # Dividir los datos en características (X) y variable objetivo (Y)
-X = df[['avg_grade_prev', 'num_evaluations', 'P_Grade']]
+X = df[['avg_grade_prev', 'num_evaluations']]
 Y = df['F_Grade']
 
 # Dividir en conjunto de entrenamiento y prueba
