@@ -58,8 +58,9 @@ def get_reg():
 
     return [coefficients[0],coefficients[1],coefficients[2],intercept]
 
-def get_final(arg_grade,num_eva,P_Grade):
+def get_final(arg_grade,num_eva,p_grade):
     coeficients = get_reg()
-    result = (arg_grade*coeficients[0])+(num_eva*coeficients[1])+(P_Grade*coeficients[2])+(coeficients[3])
-    
+    result = (float(arg_grade)*coeficients[0])+(num_eva*coeficients[1])+(p_grade*coeficients[2])+(coeficients[3])
     return result
+
+# print(get_final(99.999,150,7))

@@ -5,7 +5,7 @@ def aula_F(route_to_notes_csv, aula, delim=","):
     csv_data = pd.read_csv(route_to_notes_csv, delimiter=delim)
 
     csv_data = csv_data[csv_data["F_Grade"].notna()]
-    csv_clean = csv_data[csv_data["aula_id"] == int(aula)]
+    csv_clean = csv_data[csv_data["aula_id"] == dv_int(aula)]
 
     return csv_clean
 
@@ -44,27 +44,36 @@ def no_partial_R(pd_data):
     return csv_clean
 
 # This function, gets the values and removes the "" to turn them into numbers.
-def int(arr_columns,df):
+def dv_int(arr_columns, df):
     for element in arr_columns:
         # Convertir les columnes que necessiten ser numèriques
         df[element] = pd.to_numeric(df[element], errors='coerce')
 
     return df
 
+# This function returns the average of grades of one student, and also gets the number of evaluations
+def dv_avg_ev(id_user):
+    activitats = pd.read_csv('../datos/activitats.csv', encoding='latin1')
+    trameses = pd.read_csv('../datos/trameses.csv')
 
-def avg_grade(id_user, ruta_csv='../datos/trameses.csv', delim=","):
-    trameses = pd.read_csv(ruta_csv, sep=delim)
+    activitats = dv_int(["activitat_id", "aula_id", "startdate", "duedate", "grade"], activitats)
+    trameses = dv_int(["id", "activitat_id", "userid", "datesubmitted", "grader", "dategraded", "grade", "nevaluations"], trameses)
 
-    # Filter rows for student
-    trameses_usuario = trameses[trameses["userid"] == id_user]
+    trameses = trameses[trameses["userid"] == id_user]
+    # Join trameses with activitats
+    trameses_activitats = trameses.merge(activitats, on="activitat_id", how="left")
 
-    # Transform values into integer
-    trameses_usuario = int(["userid","grade","nevaluations"],trameses_usuario)
+    trameses_activitats = trameses_activitats.dropna(subset=['grade_x'])
 
-    # Get the average grade, ignoring null values
-    trameses_usuario = trameses_usuario[trameses_usuario['grade'].notna()]
-    nota_media = trameses_usuario['grade'].mean()
+    # Filtrar el intento con la nota más alta para cada actividad y usuario
+    highest_grade_attempts = trameses_activitats.loc[
+        trameses_activitats.groupby(['userid', 'activitat_id'])['grade_x'].idxmax()
+    ]
 
-    return nota_media
+    # Calculate average and get the ammount of evaluations
+    user_activity_summary = highest_grade_attempts.groupby('userid').agg(
+        avg_grade_prev=('grade_x', 'mean'),
+        num_evaluations=('nevaluations', 'sum')
+    ).reset_index()
 
-print(avg_grade(128))
+    return user_activity_summary # Returns [userid,avg_grade_prev,num_evaluations]
