@@ -34,7 +34,7 @@ FÓRMULA INICIALMENT PROPOSADA:
 Inicialment, vam intentar arribar com a una espècie de fórmula o algoritme matemàtic per obtenir una aproximació a una nota probable a l’examen parcial o final. 
 Per realitzar aquesta fórmula vam tenir en compte principalmente tres variables: el número de intents, la quantitat d’exercicis i la nota mitja de les activitats. Considerant aquestes variables, vam intentar trobar una relació entre totes elles i vam arribar a aquesta fórmula. 
 
-![Fórmula inicialment proposada] (![20241027_102712(0)](https://github.com/user-attachments/assets/62adecc5-2265-4ca3-94d3-2fd8df87a5d3)
+Fórmula inicialment proposada (![20241027_102712(0)](https://github.com/user-attachments/assets/62adecc5-2265-4ca3-94d3-2fd8df87a5d3)
 
 Hem fet servir el programa Microsoft Power Bi per representar la informació dels 3 arxius CSV, i interpretar-los. Això ja que degut a l'experiència nul·la amb machine learning, la nostra solució serà interpretar les dades, i fer una funció matemàtica a la que poguem posar dades i fer una predicció molt idealista, ja que hi ha molts detalls que poden influir al resultat i no els tenim en compte ja que ho complicaria tot.
 
